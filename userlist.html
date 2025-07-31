@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='usertable.css') }}">
+</head>
+<body>
+    <h1>MY LIST</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th><th>Name</th><th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in userlist %}
+            <tr>
+                <td>
+                    <a href="gethtml?id={{user[0]}}">{{user[0]}}</a>
+                </td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

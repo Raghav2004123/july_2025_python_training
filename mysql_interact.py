@@ -45,5 +45,53 @@ def form():
             cursor.close()
             return render_template('success.html')
 
+
+@app.route('/getdata')
+def getdata():
+    id = request.args.get("id")
+    cursor = mysql.connection.cursor()
+
+    if id is None:
+        cursor.execute("SELECT * FROM user")
+    else:
+        cursor.execute("SELECT * FROM user WHERE id = %s", (id,))  
+
+    results = cursor.fetchall()
+    cursor.close()
+
+    return jsonify(results)
+
+@app.route('/gethtml')
+def gethtml():
+    id = request.args.get("id")
+    cursor = mysql.connection.cursor()
+
+    if id is None:
+        cursor.execute("SELECT * FROM user")
+    else:
+        cursor.execute("SELECT * FROM user WHERE id = %s", (id,))  
+
+    result = cursor.fetchall()
+    cursor.close()
+
+    return render_template('userlist.html', userlist=result)
+
+@app.route('/userdetail')
+def userdetail():
+     
+     #id="1"
+     #name="hhhhlkllll"
+     #email="hhhhh@gmail.com"
+     #passss="kanmkldwq"
+     id=request.args.get("id")
+     cursor=mysql.connection.cursor()
+     sql=f"select * from user where id={id}"
+     cursor.execute(sql)
+     results=cursor.fetchall()
+     print (results)
+     cursor.close()
+     return render_template('userdetails.html',id=results[0][0],name=results[0][0],email=results[0][0],passss=results[0][0])
+
+
 if __name__ == '__main__':
     app.run()

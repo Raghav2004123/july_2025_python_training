@@ -1,0 +1,12 @@
+steps to create flask and api
+
+1. (create environment) python -m venv myvenv
+2. (activate the environment) myvennv/Scripts/activate
+3. (install dependencies) pip install flask and mysql connector
+4. from flask import flask
+5. app=Flask()
+6. (run the flask app)
+    @app.route('/')
+    def printname():
+    return "sample"
+7.

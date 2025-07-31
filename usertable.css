@@ -1,0 +1,18 @@
+body{
+    background-color: bisque;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+table{
+    background-color: aquamarine;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px black ;
+    width: 300px;
+}
+h1{
+    font-style: italic;
+    margin-bottom: 20px;
+    color: black;
+}
